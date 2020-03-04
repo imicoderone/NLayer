@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace NLayer.DAL.Repositories
 {
@@ -6,8 +7,8 @@ namespace NLayer.DAL.Repositories
     {
         IDataRepository DataRepository { get; }
 
-        void Commit();
-        Task CommitAsync();
+        int Commit();
+        Task<int> CommitAsync(CancellationToken cancellationToken = default);
 
         void Rollback();
         Task RollbackAsync();

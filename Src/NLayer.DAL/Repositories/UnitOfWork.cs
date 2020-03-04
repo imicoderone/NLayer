@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayer.DAL.DataContext;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace NLayer.DAL.Repositories
@@ -17,11 +18,11 @@ namespace NLayer.DAL.Repositories
             DataRepository = dataRepository;
         }
 
-        public void Commit()
+        public int Commit()
         {
             try
             {
-                _context.SaveChanges();
+                return _context.SaveChanges();
             }
             catch (DbUpdateException)
             {
@@ -29,11 +30,11 @@ namespace NLayer.DAL.Repositories
             }
         }
 
-        public async Task CommitAsync()
+        public async Task<int> CommitAsync(CancellationToken cancellationToken = default)
         {
             try
             {
-                await _context.SaveChangesAsync();
+                return await _context.SaveChangesAsync(cancellationToken);
             }
             catch (DbUpdateException)
             {
