@@ -1,12 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace NLayer.DAL.Repositories.Base
 {
     public interface IRepository<TEntity> where TEntity : class
     {
+        IQueryable<TEntity> AsQueryable { get; }
+
         IEnumerable<TEntity> GetAll();
         Task<IEnumerable<TEntity>> GetAllAsync();
+
+        TEntity Find(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> predicate);
 
         TEntity GetById(object id);
         Task<TEntity> GetByIdAsync(object id);

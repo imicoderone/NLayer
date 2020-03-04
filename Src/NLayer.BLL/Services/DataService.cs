@@ -2,9 +2,11 @@
 using NLayer.BLL.Services.Base;
 using NLayer.BLL.DTOs;
 using NLayer.DAL.Entities;
-using NLayer.DAL.Repositories;
+using NLayer.DAL.Repositories.Base;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace NLayer.BLL.Services
 {
@@ -15,14 +17,26 @@ namespace NLayer.BLL.Services
         {
         }
 
+        private IQueryable<Data> Query { get => UoW.DataRepository.AsQueryable; }
+
         public async Task<IEnumerable<DataDTO>> GetAllAsync()
         {
-            return Mapper.Map<IEnumerable<DataDTO>>(await UoW.DataRepository.GetAllAsync());
+            return Mapper.Map<IEnumerable<DataDTO>>(await Query.Where(p => !p.IsArchived).ToListAsync());
+        }
+
+        public async Task<IEnumerable<DataDTO>> GetArchivedAsync()
+        {
+            return Mapper.Map<IEnumerable<DataDTO>>(await Query.Where(p => p.IsArchived).ToListAsync());
         }
 
         public async Task<DataDTO> GetByIdAsync(object id)
         {
             return Mapper.Map<DataDTO>(await UoW.DataRepository.GetByIdAsync(id));
+        }
+
+        public async Task<DataDTO> GetByNameAsync(string name)
+        {
+            return Mapper.Map<DataDTO>(await UoW.DataRepository.GetByNameAsync(name));
         }
 
         public async Task<DataDTO> CreateAsync(DataDTO dto)

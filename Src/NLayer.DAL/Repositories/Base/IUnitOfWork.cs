@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace NLayer.DAL.Repositories
+namespace NLayer.DAL.Repositories.Base
 {
     public interface IUnitOfWork
     {

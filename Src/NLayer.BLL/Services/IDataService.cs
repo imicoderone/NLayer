@@ -9,7 +9,11 @@ namespace NLayer.BLL.Services
     {
         Task<IEnumerable<DataDTO>> GetAllAsync();
 
+        Task<IEnumerable<DataDTO>> GetArchivedAsync();
+
         Task<DataDTO> GetByIdAsync(object id);
+
+        Task<DataDTO> GetByNameAsync(string name);
 
         Task<DataDTO> CreateAsync(DataDTO dto);
 

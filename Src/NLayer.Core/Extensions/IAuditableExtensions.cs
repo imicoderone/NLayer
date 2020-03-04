@@ -1,7 +1,5 @@
 ﻿using NLayer.Core.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NLayer.Core.Extensions
 {

@@ -27,6 +27,12 @@ namespace NLayer.Api.Controllers
             return Ok(_mapper.Map<IEnumerable<DataViewModel>>(await _service.GetAllAsync()));
         }
 
+        [HttpGet, Route("Archived")]
+        public async Task<IActionResult> GetArchivedAsync()
+        {
+            return Ok(_mapper.Map<IEnumerable<DataViewModel>>(await _service.GetArchivedAsync()));
+        }
+
         [HttpGet, Route("{id}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] string id)
         {

@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using NLayer.DAL.Exceptions;
 using NLayer.DAL.DataContext;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using NLayer.DAL.Repositories.Base;
 
 namespace NLayer.DAL.Repositories
 {
@@ -24,9 +26,13 @@ namespace NLayer.DAL.Repositories
             {
                 return _context.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (NullReferenceException)
             {
                 throw;
+            }
+            catch (Exception e)
+            {
+                throw new CommitException("Can not save changes", e);
             }
         }
 
@@ -36,20 +42,46 @@ namespace NLayer.DAL.Repositories
             {
                 return await _context.SaveChangesAsync(cancellationToken);
             }
-            catch (DbUpdateException)
+            catch (NullReferenceException)
             {
                 throw;
+            }
+            catch (Exception e)
+            {
+                throw new CommitException("Can not save changes", e);
             }
         }
 
         public void Rollback()
         {
-            _context.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+            try
+            {
+                _context.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+            }
+            catch (NullReferenceException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new RollbackException("Can not rollback changes", e);
+            }
         }
 
         public async Task RollbackAsync()
         {
-            await Task.Run(() => _context.ChangeTracker.Entries().ToList().ForEach(async x => await x.ReloadAsync()));
+            try
+            {
+                await Task.Run(() => _context.ChangeTracker.Entries().ToList().ForEach(async x => await x.ReloadAsync()));
+            }
+            catch (NullReferenceException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new RollbackException("Can not rollback changes", e);
+            }
         }
     }
 }

@@ -16,12 +16,12 @@ namespace NLayer.Root
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddScoped<IDbContext, ApplicationDbContext>();
             return services;
         }
 
         public static IServiceCollection InjectDependencies(IServiceCollection services)
         {
-            services.AddScoped<IDbContext, ApplicationDbContext>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IDataRepository, DataRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();

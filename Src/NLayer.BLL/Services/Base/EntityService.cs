@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using NLayer.DAL.Repositories;
+using NLayer.DAL.Repositories.Base;
 
 namespace NLayer.BLL.Services.Base
 {
