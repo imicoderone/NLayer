@@ -5,8 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NLayer.Api.Mappings;
+using NLayer.BLL.Mappings;
 using NLayer.Root;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace NLayer.Api
 {
@@ -27,7 +28,11 @@ namespace NLayer.Api
             CompositionRoot.AddDbContext(services, Configuration);
             CompositionRoot.InjectDependencies(services);
 
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(config =>
+            {
+                config.AddProfile<ApiMappingProfile>();
+                config.AddProfile<BusinessMappingProfile>();
+            }, typeof(Startup));
 
             services.AddSwaggerGen(options =>
             {

@@ -1,4 +1,4 @@
-﻿namespace NLayer.Core.Abstractions.Entity
+﻿namespace NLayer.DAL.Entities.Base
 {
     public interface IEntity<TKey>
     {

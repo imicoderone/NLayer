@@ -1,6 +1,7 @@
-﻿using System;
+﻿using NLayer.Core.Abstractions;
+using System;
 
-namespace NLayer.Core.Abstractions.Entity
+namespace NLayer.DAL.Entities.Base
 {
     public class AuditableEntity : Entity, IAuditable
     {

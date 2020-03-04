@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NLayer.Api.Models;
 using NLayer.BLL.Services;
-using NLayer.Core.DTOs;
+using NLayer.BLL.DTOs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

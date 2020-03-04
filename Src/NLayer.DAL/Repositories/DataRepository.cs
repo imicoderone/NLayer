@@ -1,4 +1,4 @@
-﻿using NLayer.Core.Entities;
+﻿using NLayer.DAL.Entities;
 using NLayer.DAL.DataContext;
 using NLayer.DAL.Repositories.Base;
 

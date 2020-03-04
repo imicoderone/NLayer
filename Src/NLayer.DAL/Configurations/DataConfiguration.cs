@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NLayer.DAL.Configurations.Base;
-using NLayer.Core.Entities;
+using NLayer.DAL.Entities;
 
 namespace NLayer.DAL.Mappings
 {

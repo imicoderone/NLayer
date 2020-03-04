@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NLayer.Core.Abstractions.Entity;
+using NLayer.DAL.Entities.Base;
 
 namespace NLayer.DAL.Configurations.Base
 {

@@ -1,5 +1,5 @@
-﻿using NLayer.BLL.Abstractions;
-using NLayer.Core.DTOs;
+﻿using NLayer.BLL.Services.Base;
+using NLayer.BLL.DTOs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

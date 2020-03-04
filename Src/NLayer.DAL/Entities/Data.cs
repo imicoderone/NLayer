@@ -1,7 +1,7 @@
 ﻿using NLayer.Core.Abstractions;
-using NLayer.Core.Abstractions.Entity;
+using NLayer.DAL.Entities.Base;
 
-namespace NLayer.Core.Entities
+namespace NLayer.DAL.Entities
 {
     public class Data : AuditableEntity, IArchivable
     {

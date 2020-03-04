@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using NLayer.DAL.Repositories;
 
-namespace NLayer.BLL.Abstractions
+namespace NLayer.BLL.Services.Base
 {
     public class EntityService : IEntityService
     {

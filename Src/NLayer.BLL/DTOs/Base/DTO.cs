@@ -1,4 +1,4 @@
-﻿namespace NLayer.Core.Abstractions.DTO
+﻿namespace NLayer.BLL.DTOs.Base
 {
     public abstract class DTO<TKey> : IDTO<TKey>
     {

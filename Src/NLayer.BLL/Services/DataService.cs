@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using NLayer.BLL.Abstractions;
-using NLayer.Core.DTOs;
-using NLayer.Core.Entities;
+using NLayer.BLL.Services.Base;
+using NLayer.BLL.DTOs;
+using NLayer.DAL.Entities;
 using NLayer.DAL.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;

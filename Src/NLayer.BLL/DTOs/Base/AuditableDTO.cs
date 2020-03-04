@@ -1,6 +1,7 @@
-﻿using System;
+﻿using NLayer.Core.Abstractions;
+using System;
 
-namespace NLayer.Core.Abstractions.DTO
+namespace NLayer.BLL.DTOs.Base
 {
     public class AuditableDTO : DTO, IAuditable
     {

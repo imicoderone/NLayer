@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayer.DAL.Extensions;
-using NLayer.Core.Entities;
+using NLayer.DAL.Entities;
 using NLayer.DAL.Mappings;
 using System.Threading;
 using System.Threading.Tasks;

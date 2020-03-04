@@ -1,4 +1,4 @@
-﻿namespace NLayer.BLL.Abstractions
+﻿namespace NLayer.BLL.Services.Base
 {
     public interface IService
     {

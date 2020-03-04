@@ -1,6 +1,6 @@
-﻿using NLayer.Core.Abstractions.DTO;
+﻿using NLayer.BLL.DTOs.Base;
 
-namespace NLayer.Core.DTOs
+namespace NLayer.BLL.DTOs
 {
     public class DataDTO : AuditableDTO
     {
